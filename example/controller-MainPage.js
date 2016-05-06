@@ -30,6 +30,8 @@
 
 module.exports = function (controller, component) {
 
+  controller.log = true;
+
   controller.toastr = function(type, text) {
     if (type && type !== '' && component.refs && component.refs.toastContainer && component.refs.toastContainer[type]) {
       component.refs.toastContainer[type](text);

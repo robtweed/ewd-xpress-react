@@ -1,7 +1,7 @@
 /*
 
  ------------------------------------------------------------------------------------
- | Template Content module for ewd-xpress React.js applications                     |
+ | Example module controller for ewd-xpress React.js applications                   |
  |                                                                                  |
  | Copyright (c) 2016 M/Gateway Developments Ltd,                                   |
  | Reigate, Surrey UK.                                                              |
@@ -28,38 +28,19 @@
 
 */
 
-"use strict"
+module.exports = function (controller, component) {
 
-var React = require('react');
+  component.sendTestMessage = function(text) {
+    var message = {
+      type: 'test',
+      params: {
+        text: text
+      }
+    };
+    controller.send(message, function(messageObj) {
+      controller.toastr('success', messageObj.message.text);
+    });
+  };
 
-var Content = React.createClass({
-
-  getInitialState: function() {
-    return {
-      status: 'initial'
-    }
-  },
-
-  componentWillMount: function() {
-    // add your Content module-specific augmentation of the controller here...
-    this.controller = require('./controller-Content')(this.props.controller, this);
-  },
-
-  componentDidMount: function() {
-    this.sendTestMessage('hello from browser!');
-  },
-
-  render: function() {
-
-    //var componentPath = this.controller.updateComponentPath(this);
-
-      return (
-        <div>
-          Main content goes here.  Replace this with your app's content-handling modules
-        </div>
-      );
-
-  }
-});
-
-module.exports = Content;
+  return controller;
+};
