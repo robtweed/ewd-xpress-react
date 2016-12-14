@@ -1,6 +1,6 @@
 {
   "name": "ewd-xpress-react",
-  "version": "1.3.2",
+  "version": "1.4.0",
   "description": "React Client Modules for ewd-xpress",
   "main": "index.js",
   "scripts": {
