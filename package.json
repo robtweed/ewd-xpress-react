@@ -1,8 +1,11 @@
 {
   "name": "ewd-xpress-react",
-  "version": "1.4.0",
+  "version": "1.5.0",
   "description": "React Client Modules for ewd-xpress",
   "main": "index.js",
+  "dependencies": {
+    "create-react-class": ""
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
